@@ -2,5 +2,5 @@ use serde::Deserialize;
 
 #[derive(Deserialize)]
 pub struct Config {
-   pub path: String,
+    pub path: Option<String>,
 }

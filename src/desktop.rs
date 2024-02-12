@@ -7,7 +7,9 @@ pub fn init<R: Runtime>(
     api: PluginApi<R, Config>,
 ) -> crate::Result<PluginZustandStorage<R>> {
     // manage state so it is accessible by the commands
-    app.manage(StorageState::new(&api.config().path));
+    app.manage(StorageState::new(
+        &api.config().path.clone().unwrap_or("./db".into()),
+    ));
     Ok(PluginZustandStorage(app.clone()))
 }
 

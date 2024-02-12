@@ -27,5 +27,7 @@ jobs:
       - name: publish crate
         run: cargo publish --token ${{ secrets.ORG_CRATES_IO_TOKEN }}
       - name: publish npm
-        run: npm publish
+        run: |
+          yarn
+          npm publish
       

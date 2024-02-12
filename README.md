@@ -1,1 +1,1 @@
-# Tauri Plugin plugin-zustand-storage
+# Tauri Plugin zustand-storage
