@@ -1,12 +1,13 @@
 [package]
 name = "tauri-plugin-zustand-storage"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["You"]
-description = ""
+description = "A Tauri plugin for zustand storage"
 edition = "2021"
 rust-version = "1.70"
 exclude = ["/examples", "/webview-dist", "/webview-src", "/node_modules"]
 links = "tauri-plugin-zustand-storage"
+license = "MIT"
 
 [dependencies]
 tauri = { version = "2.0.0-beta.2" }
