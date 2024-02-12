@@ -1,4 +1,4 @@
-name: covector version or publish
+name: publish
 on:
   push:
     tags:
