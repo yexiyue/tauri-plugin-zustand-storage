@@ -16,7 +16,11 @@ impl Deref for Storage {
 
 impl Storage {
     pub fn new() -> Self {
-        let path = std::env::current_exe().unwrap().join("storage");
+        let path = std::env::current_exe()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("storage");
         Self {
             db: DB::open_default(path).unwrap(),
         }
