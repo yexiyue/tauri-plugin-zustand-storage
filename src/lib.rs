@@ -1,5 +1,3 @@
-use config::Config;
-
 use tauri::{
     plugin::{Builder, TauriPlugin},
     Manager, Runtime,
@@ -7,7 +5,6 @@ use tauri::{
 
 mod storage;
 pub use models::*;
-mod config;
 
 #[cfg(desktop)]
 mod desktop;
@@ -37,8 +34,8 @@ impl<R: Runtime, T: Manager<R>> crate::ZustandStorageExt<R> for T {
 }
 
 /// Initializes the plugin.
-pub fn init<R: Runtime>() -> TauriPlugin<R, Config> {
-    Builder::<R, Config>::new("zustand-storage")
+pub fn init<R: Runtime>() -> TauriPlugin<R> {
+    Builder::new("zustand-storage")
         .invoke_handler(tauri::generate_handler![
             commands::set_item,
             commands::get_item,

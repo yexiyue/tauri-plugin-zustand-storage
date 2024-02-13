@@ -15,7 +15,8 @@ impl Deref for Storage {
 }
 
 impl Storage {
-    pub fn new(path: &str) -> Self {
+    pub fn new() -> Self {
+        let path = std::env::current_exe().unwrap().join("storage");
         Self {
             db: DB::open_default(path).unwrap(),
         }
@@ -48,7 +49,7 @@ impl Deref for StorageState {
 }
 
 impl StorageState {
-    pub fn new(path: &str) -> Self {
-        Self(Mutex::new(Storage::new(path)))
+    pub fn new() -> Self {
+        Self(Mutex::new(Storage::new()))
     }
 }

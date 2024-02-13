@@ -1,15 +1,14 @@
+use serde::de::DeserializeOwned;
 use tauri::{plugin::PluginApi, AppHandle, Manager, Runtime};
 
-use crate::{config::Config, storage::StorageState};
+use crate::storage::StorageState;
 
-pub fn init<R: Runtime>(
+pub fn init<R: Runtime, C: DeserializeOwned>(
     app: &AppHandle<R>,
-    api: PluginApi<R, Config>,
+    _api: PluginApi<R, C>,
 ) -> crate::Result<ZustandStorage<R>> {
     // manage state so it is accessible by the commands
-    app.manage(StorageState::new(
-        &api.config().path.clone().unwrap_or("./db".into()),
-    ));
+    app.manage(StorageState::new());
     Ok(ZustandStorage(app.clone()))
 }
 
