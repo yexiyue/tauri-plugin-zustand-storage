@@ -1,6 +1,6 @@
 {
   "name": "tauri-plugin-zustand-storage-api",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "author": "Yexiyue <yexiyue666@qq.com>",
   "description": "A Tauri plugin for zustand storage",
   "browser": "webview-dist/index.js",
