@@ -1,18 +1,26 @@
 # Permissions
 
-## allow-execute
+## allow-get-item
 
-Enables the execute command without any pre-configured scope.
+Enables the get_item command without any pre-configured scope.
 
-## deny-execute
+## deny-get-item
 
-Denies the execute command without any pre-configured scope.
+Denies the get_item command without any pre-configured scope.
 
-## allow-ping
+## allow-remove-item
 
-Enables the ping command without any pre-configured scope.
+Enables the remove_item command without any pre-configured scope.
 
-## deny-ping
+## deny-remove-item
 
-Denies the ping command without any pre-configured scope.
+Denies the remove_item command without any pre-configured scope.
+
+## allow-set-item
+
+Enables the set_item command without any pre-configured scope.
+
+## deny-set-item
+
+Denies the set_item command without any pre-configured scope.
 

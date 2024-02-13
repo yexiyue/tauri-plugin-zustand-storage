@@ -247,31 +247,45 @@
       "type": "string",
       "oneOf": [
         {
-          "description": "allow-execute -> Enables the execute command without any pre-configured scope.",
+          "description": "allow-get-item -> Enables the get_item command without any pre-configured scope.",
           "type": "string",
           "enum": [
-            "allow-execute"
+            "allow-get-item"
           ]
         },
         {
-          "description": "deny-execute -> Denies the execute command without any pre-configured scope.",
+          "description": "deny-get-item -> Denies the get_item command without any pre-configured scope.",
           "type": "string",
           "enum": [
-            "deny-execute"
+            "deny-get-item"
           ]
         },
         {
-          "description": "allow-ping -> Enables the ping command without any pre-configured scope.",
+          "description": "allow-remove-item -> Enables the remove_item command without any pre-configured scope.",
           "type": "string",
           "enum": [
-            "allow-ping"
+            "allow-remove-item"
           ]
         },
         {
-          "description": "deny-ping -> Denies the ping command without any pre-configured scope.",
+          "description": "deny-remove-item -> Denies the remove_item command without any pre-configured scope.",
           "type": "string",
           "enum": [
-            "deny-ping"
+            "deny-remove-item"
+          ]
+        },
+        {
+          "description": "allow-set-item -> Enables the set_item command without any pre-configured scope.",
+          "type": "string",
+          "enum": [
+            "allow-set-item"
+          ]
+        },
+        {
+          "description": "deny-set-item -> Denies the set_item command without any pre-configured scope.",
+          "type": "string",
+          "enum": [
+            "deny-set-item"
           ]
         }
       ]
