@@ -21,18 +21,18 @@ mod models;
 pub use error::{Error, Result};
 
 #[cfg(desktop)]
-use desktop::PluginZustandStorage;
+use desktop::ZustandStorage;
 #[cfg(mobile)]
 use mobile::PluginZustandStorage;
 
 /// Extensions to [`tauri::App`], [`tauri::AppHandle`] and [`tauri::Window`] to access the plugin-zustand-storage APIs.
 pub trait PluginZustandStorageExt<R: Runtime> {
-    fn plugin_zustand_storage(&self) -> &PluginZustandStorage<R>;
+    fn zustand_storage(&self) -> &ZustandStorage<R>;
 }
 
 impl<R: Runtime, T: Manager<R>> crate::PluginZustandStorageExt<R> for T {
-    fn plugin_zustand_storage(&self) -> &PluginZustandStorage<R> {
-        self.state::<PluginZustandStorage<R>>().inner()
+    fn zustand_storage(&self) -> &ZustandStorage<R> {
+        self.state::<ZustandStorage<R>>().inner()
     }
 }
 
@@ -46,10 +46,10 @@ pub fn init<R: Runtime>() -> TauriPlugin<R, Config> {
         ])
         .setup(|app, api| {
             #[cfg(mobile)]
-            let plugin_zustand_storage = mobile::init(app, api)?;
+            let zustand_storage = mobile::init(app, api)?;
             #[cfg(desktop)]
-            let plugin_zustand_storage = desktop::init(app, api)?;
-            app.manage(plugin_zustand_storage);
+            let zustand_storage = desktop::init(app, api)?;
+            app.manage(zustand_storage);
 
             Ok(())
         })

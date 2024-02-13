@@ -10,24 +10,24 @@ use crate::models::*;
 const PLUGIN_IDENTIFIER: &str = "";
 
 #[cfg(target_os = "ios")]
-tauri::ios_plugin_binding!(init_plugin_plugin - zustand - storage);
+tauri::ios_plugin_binding!(init_plugin_plugin-zustand-storage);
 
 // initializes the Kotlin or Swift plugin classes
 pub fn init<R: Runtime, C: DeserializeOwned>(
     _app: &AppHandle<R>,
     api: PluginApi<R, C>,
-) -> crate::Result<PluginZustandStorage<R>> {
+) -> crate::Result<ZustandStorage<R>> {
     #[cfg(target_os = "android")]
     let handle = api.register_android_plugin(PLUGIN_IDENTIFIER, "ExamplePlugin")?;
     #[cfg(target_os = "ios")]
-    let handle = api.register_ios_plugin(init_plugin_plugin - zustand - storage)?;
-    Ok(PluginZustandStorage(handle))
+    let handle = api.register_ios_plugin(init_plugin_plugin-zustand-storage)?;
+    Ok(ZustandStorage(handle))
 }
 
 /// Access to the plugin-zustand-storage APIs.
-pub struct PluginZustandStorage<R: Runtime>(PluginHandle<R>);
+pub struct ZustandStorage<R: Runtime>(PluginHandle<R>);
 
-impl<R: Runtime> PluginZustandStorage<R> {
+impl<R: Runtime> ZustandStorage<R> {
     pub fn ping(&self, payload: PingRequest) -> crate::Result<PingResponse> {
         self.0
             .run_mobile_plugin("ping", payload)
