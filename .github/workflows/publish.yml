@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          registry-url: 'https://registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}'
+          registry-url: 'https://registry.npmjs.org/:_authToken={{ secrets.NPM_TOKEN }}'
       - name: setup rust
         uses: actions-rs/toolchain@v1
         with:
@@ -33,6 +33,6 @@ jobs:
         run: cargo publish --token ${{ secrets.ORG_CRATES_IO_TOKEN }}
       - name: publish npm
         run: |
-          yarn
+          yarn install
           npm publish
       
